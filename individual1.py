@@ -15,6 +15,7 @@ def get_shop(shops, name, product, price):
     })
     return shops
 
+
 def display_shops(shops):
     """
     Отображает данные о товаре в виде таблицы и
