@@ -7,7 +7,6 @@ import jsonschema
 
 
 def get_shop(shops, name, product, price):
-
     shops.append({
         'name': name,
         'product': product,
@@ -78,39 +77,8 @@ def save_shops(file_name, shops):
 
 
 def load_shops(file_name):
-    schema = {
-        "type": "array",
-        "items": [
-            {
-                "type": "object",
-                "properties": {
-                    "name": {
-                        "type": "string"
-                    },
-                    "product": {
-                        "type": "string"
-                    },
-                    "price": {
-                        "type": "number"
-                    }
-                },
-                "required": [
-                    "name",
-                    "product",
-                    "price"
-                ]
-            }
-        ]
-    }
     with open(file_name, "r", encoding="utf-8") as fin:
         loadfile = json.load(fin)
-        validator = jsonschema.Draft7Validator(schema)
-        try:
-            if not validator.validate(loadfile):
-                print("Валидация прошла успешно")
-        except jsonschema.exceptions.ValidationError:
-            print("Ошибка валидации", list(validator.iter_errors(loadfile)))
-            exit()
     return loadfile
 
 
