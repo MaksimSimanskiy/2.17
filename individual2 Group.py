@@ -88,9 +88,5 @@ def load_shops(file_name):
     return loadfile
 
 
-def main():
-    group()
-
-
 if __name__ == '__main__':
-    main()
+    group()
